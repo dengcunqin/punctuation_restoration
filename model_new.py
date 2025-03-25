@@ -78,6 +78,6 @@ class Model_new(nn.Module):
 		exclude_last = cumulative_non_zeros_flip != 1
 		final_mask = non_zero_mask & exclude_first & exclude_last
 		active_punct_logits = punct_logits[final_mask] # (T', out_size_punct)
-		return active_punct_logits, final_mask
+		return active_punct_logits
 
 

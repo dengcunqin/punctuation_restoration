@@ -55,7 +55,7 @@ for text in text_list:
 
     token_strs,token_ids,valid_ids,label_lens = pre_handle(text,sp,max_seq_length=200)
 
-    active_punct_logits, final_mask = model(token_ids, valid_ids=valid_ids, label_lens=label_lens)
+    active_punct_logits = model(token_ids, valid_ids=valid_ids, label_lens=label_lens)
 
     punct_pred = torch.argmax(F.log_softmax(active_punct_logits, dim=1), dim=1)
 

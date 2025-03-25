@@ -36,13 +36,13 @@ class punc_model(torch.nn.Module):
         valid_ids: torch.Tensor,
         label_lens: torch.Tensor,
         **kwargs,
-    ) -> Tuple[torch.Tensor, Dict[str, torch.Tensor], torch.Tensor]:
+    ) -> torch.Tensor:
         
-        punct_loss = self.model(token_ids, valid_ids=valid_ids, label_lens=label_lens)
+        punct_logits = self.model(token_ids, valid_ids=valid_ids, label_lens=label_lens)
 
 
 
-        return punct_loss
+        return punct_logits
 
 
 import numpy as np
